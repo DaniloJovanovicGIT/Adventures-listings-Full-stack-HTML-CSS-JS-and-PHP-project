@@ -16,15 +16,7 @@ background-size: cover;
 
 }
 
-a{
-    text-decoration: none;
-    color: aquamarine;
-    -webkit-transition: .5s ease;
-    transition: .5s ease;
-}
-a:hover {
-    color:cadetblue;
-}
+
 .form {
 background: rgba(172, 107, 83, 0.4);
 padding: 40px;
@@ -57,59 +49,135 @@ border-radius: 15px;
 display: block;
 text-decoration: none;
 padding: 15px;
-background: rgba(224, 250, 227, 0.87);
-color: rgb(5, 53, 5);
+background: rgba(224, 250, 227, 0.4);
+color: rgb(6, 22, 6);
 font-size: 25px;
 float: left;
 width: 50%;
 text-align: center;
 cursor: pointer;
--webkit-transition: .5s ease;
-transition: .5s ease;
+
 }
 .tab-group li a:hover{
     
-background: rgba(221, 144, 97, 0.9);
-color: rgb(45, 255, 175);
+    background: rgba(224, 250, 227, 0.9);
+    color: rgb(6, 22, 6);
 }
-
+p{
+    font-size: large;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .tab-froup .active a{
 background: sandybrown;
 color: seashell;
 
 }
-.tab-content > div:last-child{
-    display: none;
-}
+
 
 h1{
     text-align: center;
-    color: rgba(224, 250, 227, 0.87);
+    color: rgb(224, 250, 227);
     font-weight: 300;
     margin: 0 0 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px black;
 }
 
-div.info {
-    color:pink;
-    display:box;
-    text-align:center;
-    padding: 5px;
-    margin-top:-20px;
-    margin-bottom: 15px;
-    border: 1px solid red;
-    background: coral;
-}
+
 
 label {
 position: absolute;
--webkit-transform: translateY(6px);
-transform: translateY(6px);
+bottom:40px;
 left:13px;
-color: rgba(255,255,255,0.5);
--webkit-transition: all 0.25s ease;
-transition: all 0.25s ease;
--webkit-backface-visibility: hidden;
-pointer-events: none;
+color: rgb(255, 255, 255);
 
+
+}
+
+label .req{
+    margin: 2px;
+    color:rgb(15, 167, 159);
+}
+label .active{
+-webkit-transform: translateY(50px);
+transform: translateY(50px);
+left:2px;
+color: rgba(255,255,255,0);
+}
+
+label.active .req {
+    opacity: 1;
+}
+
+label.highlight{
+ color: aquamarine;   
+}
+input, textarea{
+font-size: 22px;
+display: block;
+width: 100%;
+height: 6%;
+padding: 5px 10px;
+background: none;
+border:3px solid #a0a0a0;
+}
+input:focus, textarea:focus{
+outline: 0;
+border-color:aquamarine;
+background-color: rgba(255,255,255,0.2);
+}
+textarea{
+    border: 2px solid #ffffff;
+    resize: vertical;
+}
+
+.field-wrap{
+    position: relative;
+    margin-bottom: 45px;
+}
+
+
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

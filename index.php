@@ -10,8 +10,8 @@ session_start();
 <body>
     <div class="form">
         <ul class="tab-group">
-            <li class="tab"><a href="#signup">Prijavi se</a></li>
-            <li class="tab active"><a href="#login">Uloguj se</a></li>
+            <li class="tab"><a href="#signup">Registruj se</a></li>
+            <li class="tab active"><a href="#login">Pronađi avanture</a></li>
         </ul>
         <p>Zdravo dobrodosili na sajt Avanture.rs, ovde mozete objaviti vase planove za odlazak na planinu, jezero, reku ili more</p>
 </br>
@@ -19,7 +19,7 @@ session_start();
 </br>
 <div class="tab-content">
     <div id="login">
-        <h1>Dobrodošli</h1>
+        <h1>Dobrodošli, avanture vas čekaju!</h1>
     <form action="index.php" method="post" autocomplete="off">
             <div class="field-wrap">
                 <label>Email adresa<span class="req">*</span>
@@ -32,7 +32,7 @@ session_start();
             </label>
             <input type="password" required autocomplete="off" name="password">
         </div>
-        <button class="button button-block" name="login">Prijavi se</button>
+        <button class="button-28" name="login">Prijavi se</button>
     </form>
     <div id="signup">
     <h1>Registruj se za 5 sekundi.</h1>
@@ -60,7 +60,7 @@ session_start();
             </label>
             <input type="password" required autocomplete="off" name="password">
         </div>
-    <button type="submit" class="button button-block" name="register">Registruj se</button>
+    <button type="submit" class="button-28" name="register">Registruj se</button>
 </form>
 </div>
 </div>
