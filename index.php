@@ -1,4 +1,6 @@
+<?php
 require 'db.php';
+require 'backend.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -7,6 +9,25 @@ session_start();
         <title>Avanture.rs</title>
         <?php include 'css.html';?>
 </head>
+<?php
+
+    $object1=new UserInterface();
+    if($_SERVER['REQUEST_METHOD']=='POST')
+    {
+        if(isset($_POST['login'])){
+            $object1->login();
+        }
+        elseif (isset($_POST['register'])) {
+            $object1->register();
+        }
+        elseif (isset($_POST['subscribe'])) {
+            $object1->subscribe();
+        }
+        elseif (isset($_POST['unsubscribe'])) {
+            $object1->unsubscribe();
+        }
+    }
+?>
 <body>
     <div class="form">
         <ul class="tab-group">
