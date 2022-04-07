@@ -10,8 +10,8 @@ session_start();
 </head>
 <?php
 
-    $object1=new UserInterface();
-    if($_SERVER['REQUEST_METHOD']=='POST')
+    $object1 = new UserInterface();
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         if(isset($_POST['login'])){
             $object1->login();

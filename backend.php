@@ -1,3 +1,4 @@
+<?php
 class UserInterface{
     private $host;
     private $user;
@@ -9,18 +10,18 @@ class UserInterface{
     public function __construct(){
     $this->host='localhost';
     $this->user='root';
-    $this->pass-'';
-    $this->db='accounts';
+    $this->pass='';
+    $this->db='nalozi';
     $this->mysqli=new mysqli($this->host,$this->user,$this->pass,$this->db) or die($this->mysqli->error);
     }
 
     public function login(){
-        $email=$this->mysqli->escape_sstring($_POST['email']);
-        $result=$this->mysqli->query("SELECT * FROM users WHERE email='email'");
-        if($result->num_rows == 0)(
+        $email=$this->mysqli->escape_string($_POST['email']);
+        $result=$this->mysqli->query("SELECT * FROM users WHERE email='$email'");
+        if($result->num_rows == 0){
             $_SESSION['message'] = "User with that email doesnt exist!";
             header("location: error:php");
-        )
+        }
         else{
             $user = $result->fetch_assoc();
             if(password_verify($_POST['password'],$user['password'])){
@@ -32,8 +33,8 @@ class UserInterface{
                 header("location: landingpage.php");
             }
             else{
-                $_SESSION['message']="You have entered wrong password, try again!"
-                header("location: error.php");
+                $_SESSION['message']="Uneli ste pogresnu sifru, pokusajte ponovo!";
+                header("location: greska.php");
             }
         }
 
@@ -43,20 +44,22 @@ class UserInterface{
         $_SESSION['first_name']=$_POST['firstname'];
         $_SESSION['last_name']=$_POST['lastname'];
 
-        $fistname= $this->mysqli->escape_string($_POST['fisrtname']);
+        $firstname= $this->mysqli->escape_string($_POST['firstname']);
         $lastname= $this->mysqli->escape_string($_POST['lastname']);
         $email= $this->mysqli->escape_string($_POST['email']);
-        $password= $this->mysqli->escape_string($_POST['password'],PASSWORD_BCRYPT);
+        $password= $this->mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
         $hash= $this->mysqli->escape_string(md5(rand(0,1000)));
 
         $result = $this->mysqli->query("SELECT * FROM users WHERE email='$email'") or die($mysqli->error());
         if($result->num_rows >0){
-                $_SESSION['message']="Korisnik vec postoji!"
-                header("location: error.php");
+                $_SESSION['message']="Korisnik vec postoji!";
+                header("location: greska.php");
          }
          else{
-             $sql="INSERT INTO users(first_name,last_name, email, password, hash)"."VALUES('$first_name','$last_name','$email','$password','$hash')";
-             if($this->mysqli->query($sql)){
+             $sql= "INSERT INTO users (first_name, last_name, email, password, hash) "
+             ."VALUES ('$first_name','$last_name','$email','$password','$hash')";
+             
+             if($this->mysqli->query($sql) ){
                 $_SESSION['active']= 1;
                 $_SESSION['logged_in']=true;
                 $_SESSION['message']='You have successfully registerd!';
@@ -64,10 +67,11 @@ class UserInterface{
                 header("location:success.php");
              }
              else{
-                 $_SESSION['message']='Registration failed';
-                 header("location: error.php");
+                 $_SESSION['message']='Registracija neuspesna:(';
+                 header("location: greska.php");
              }
          }
 
     }
 }
+?>
